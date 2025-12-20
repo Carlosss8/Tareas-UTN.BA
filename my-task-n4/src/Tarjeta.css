@@ -1,0 +1,21 @@
+img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10%;
+}
+
+
+.tarjeta {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    border-radius: 12px;
+}
+
+h2 {
+    background-color: #6f93a9;
+    padding: 10px 20px;
+    border-radius: 12px;
+}
