@@ -1,35 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react';
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+
+  const [Tarea, setTarea] = useState([])
+  const [text, setText] = useState("");
+
+  const addTarea = () => {
+    if (!text.trim()) {
+      return;
+    }
+
+    setTarea([...Tarea, { texto: text, completada: false }])
+    setText("")
+  }
+
+  const toggleTarea = (index) => {
+    const nuevaTarea = Tarea.map((t, i) =>
+      i === index ? { ...t, completada: !t.completada } : t
+    );
+
+    setTarea(nuevaTarea)
+  }
+
+  const deleteTask = (index) => {
+    const nuevaTarea = Tarea.filter((_, i) => i !== index);
+    setTarea(nuevaTarea)
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
 
+      <section className="ListaTask">
+        <h2>Lista de Tareas</h2>
+
+        <div>Tareas...</div>
+        <input placeholder="Nueva Tarea" value={text} onChange={(v) => setText(v.target.value)} />
+        <button onClick={addTarea} className='agregar-button'>Agregar Tarea</button>
+        <ul>
+          {Tarea.map((t, i) => (
+            <li key={i}>
+              <input
+                type="checkbox"
+                checked={t.completada}
+                onChange={() => toggleTarea(i)}
+              />
+              <span>{t.texto}</span>
+              <button className='delete-button' onClick={() => deleteTask(i)}> Eliminar tarea </button>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
+  );
+};
 export default App
