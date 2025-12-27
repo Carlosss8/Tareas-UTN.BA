@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #41ace2, #ad90b9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ListaTask {
+    background-color: #fff;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.ListaTask h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.ListaTask input[type="text"] {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.ListaTask input[type="search"] {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.ListaTask input:focus {
+    outline: none;
+    border-color: #41ace2;
+}
+
+.agregar-button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: #41ace2;
+    color: white;
+    cursor: pointer;
+}
+
+.agregar-button:hover {
+    background-color: #3696c9;
+}
+
+.ListaTask ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ListaTask li {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 8px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+}
+
+.ListaTask li span {
+    flex: 1;
+    margin-left: 8px;
+    text-align: left;
+}
+
+.delete-button {
+    background-color: #ff5c5c;
+    border: none;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.delete-button:hover {
+    background-color: #e04b4b;
+}
