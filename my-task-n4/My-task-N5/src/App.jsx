@@ -59,6 +59,7 @@ const App = () => {
         />
 
         <input
+          type="text"
           ref={inputRef}
           placeholder="Nueva tarea"
           value={text}
