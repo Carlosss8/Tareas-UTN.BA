@@ -1,9 +1,14 @@
-## TAREA N°4 
+# TAREAS – DIPLOMATURA UTN.BA
 
-## DECRIPCION 
-Mini pagina web desarrollada con React y Vite que muestra informacion/tarjetas de figuras de futbol internacional, cada tarjeta es un componente reutilizable que recibe datos por props
+## 📌 Descripción
+Repositorio que contiene las tareas y prácticas realizadas durante la Diplomatura UTN.BA.  
+Incluye mini aplicaciones web desarrolladas con **React y Vite**, enfocadas en el uso de componentes reutilizables, manejo de estado, props y estilos con CSS.
 
-## Lenguajes utilizados 
+Entre los proyectos se encuentran páginas que muestran información en tarjetas, listas de tareas, filtros y funcionalidades básicas de interacción.
+
+---
+
+## 🛠️ Tecnologías utilizadas
 - React
 - Vite
 - JavaScript
@@ -26,16 +31,7 @@ npm install
 
 npm run dev
 
-## ----------------------
-![alt text](image.png)
-
 ## AUTOR
 
 NOMBRE: Carlos Rodriguez
-UNIDAD: Modulo 1 - Unidad 4
 
-## Fuentes
-
-Lionel Messi – Fundación Konex
-Enzo Fernández – Wikimedia Commons
-Marcelo Gallardo – Google Images
