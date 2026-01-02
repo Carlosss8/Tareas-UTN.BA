@@ -1,14 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { UsuarioCard } from "../components/UsuarioCard"
 
 const Usuarios = () => {
     const [usuarios, setUsuarios] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState("")
+    const [search, setSearch] = useState("");
+    const [recargar, setRecargar] = useState(0)
 
 
     useEffect(() => {
         const Solicitud = async () => {
             try {
+                setLoading(true);
+                setError("");
+
                 const res = await fetch('https://jsonplaceholder.typicode.com/users')
 
                 if (!res.ok) {
@@ -22,20 +28,28 @@ const Usuarios = () => {
             } catch (error) {
                 setError("No se pudieron cargar los usuarios");
                 setLoading(false);
+            } finally {
+                setLoading(false)
             }
 
         }
 
         Solicitud()
 
-    }, []);
+    }, [recargar]);
+
+    const buscarUsuario = useMemo(() => {
+        return usuarios.filter(u =>
+            u.name.toLowerCase().includes(search.toLowerCase())
+        );
+    }, [usuarios, search]);
 
     if (loading) {
-        return <p>Cargando usuarios...</p>;
+        return console.log("Cargando usuarios...")
     }
 
     if (error) {
-        return <p>{error}</p>;
+        return console.log(error);
     }
 
 
@@ -45,16 +59,21 @@ const Usuarios = () => {
         <div>
             <h2>Usuarios</h2>
 
+            <input
+                type="search"
+                placeholder="Buscar Usuario"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+            />
+
+            <button onClick={() => setRecargar(r => r + 1)}>Recargar Usuarios</button>
+
             <ul className="usuarios-list">
-                {usuarios.map((usuario) => (
-                    <li key={usuario.id}>
-                        <strong>Nombre: </strong> {usuario.name} <br />
-                        <strong>Correo: </strong> {usuario.email}
-                    </li>
+                {buscarUsuario.map(usuario => (
+                    <UsuarioCard key={usuario.id} usuario={usuario} />
                 ))}
             </ul>
         </div>
-
     );
 
 }
