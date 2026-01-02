@@ -23,19 +23,41 @@ const Usuarios = () => {
                 setError("No se pudieron cargar los usuarios");
                 setLoading(false);
             }
+
         }
 
         Solicitud()
 
     }, []);
 
+    if (loading) {
+        return <p>Cargando usuarios...</p>;
+    }
+
+    if (error) {
+        return <p>{error}</p>;
+    }
+
+
+
+
     return (
         <div>
             <h2>Usuarios</h2>
+
+            <ul className="usuarios-list">
+                {usuarios.map((usuario) => (
+                    <li key={usuario.id}>
+                        <strong>Nombre: </strong> {usuario.name} <br />
+                        <strong>Correo: </strong> {usuario.email}
+                    </li>
+                ))}
+            </ul>
         </div>
+
     );
 
 }
 
 
-export default Usuarios()
+export { Usuarios }
