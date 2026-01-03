@@ -1,0 +1,64 @@
+.usuarios-list {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    list-style: none;
+}
+
+.usuario-card {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 280px;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+body {
+    background: linear-gradient(135deg, #41ace2, #ad90b9);
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+h2 {
+
+    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: center;
+    background-color: #6f93a9;
+    padding: 10px 20px;
+    border-radius: 12px;
+}
+
+.usuario {
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-usuario {
+    width: 260px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.recargar-button {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    background-color: #6f93a9;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}

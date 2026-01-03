@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
-import { UsuarioCard } from "../components/UsuarioCard"
+import { UsuarioCard } from "../components/UsuarioCard";
+import "../styles/home.css";
 
 const Usuarios = () => {
     const [usuarios, setUsuarios] = useState([])
@@ -59,15 +60,17 @@ const Usuarios = () => {
         <div>
             <h2>Usuarios</h2>
 
-            <input
-                type="search"
-                placeholder="Buscar Usuario"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-            />
+            <div className="usuario">
+                <input
+                    type="search"
+                    className="search-usuario"
+                    placeholder="Buscar Usuario"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                />
 
-            <button onClick={() => setRecargar(r => r + 1)}>Recargar Usuarios</button>
-
+                <button className="recargar-button" onClick={() => setRecargar(r => r + 1)}>Recargar Usuarios</button>
+            </div>
             <ul className="usuarios-list">
                 {buscarUsuario.map(usuario => (
                     <UsuarioCard key={usuario.id} usuario={usuario} />
