@@ -1,16 +1,38 @@
-# React + Vite
+## TAREA N°4 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## DECRIPCION 
+Aplicación web en React que muestra y filtra usuarios obtenidos desde una API pública, utilizando componentes reutilizables y hooks
+## Lenguajes utilizados 
+- React
+- Vite
+- JavaScript
+- CSS
 
-Currently, two official plugins are available:
+## Clonar el repositorio
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. Clonar el repositorio
 
-## React Compiler
+git clone https://github.com/Carlosss8/Tareas-UTN.BA/tree/main/TareasUTNBA/My-task-N6
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 2. Ingresar a la carpeta del proyecto
 
-## Expanding the ESLint configuration
+cd My-task-N6
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 3. Instalar dependencias
+npm install
+
+## 4. Ejecutar la aplicación
+
+npm run dev
+
+## ----------------------
+![alt text](image.png)
+
+## AUTOR
+
+NOMBRE: Carlos Rodriguez
+UNIDAD: Modulo 2 - Unidad 2
+
+## Fuentes
+
+MDN Web docs :  https://developer.mozilla.org/es/
