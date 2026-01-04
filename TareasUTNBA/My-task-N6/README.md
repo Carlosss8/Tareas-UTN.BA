@@ -1,4 +1,4 @@
-## TAREA N°4 
+## TAREA N°6
 
 ## DECRIPCION 
 Aplicación web en React que muestra y filtra usuarios obtenidos desde una API pública, utilizando componentes reutilizables y hooks
