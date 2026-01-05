@@ -3,6 +3,7 @@ import { Inicio } from "../views/Inicio"
 import { Nosotros } from "../views/Nosotros"
 import { Contacto } from "../views/Contacto"
 import { Navbar } from "../components/Navbar"
+import { Producto } from "../views/Producto"
 
 const RouterApp = () => {
     return (
@@ -12,6 +13,7 @@ const RouterApp = () => {
                 <Route path="/" element={<Inicio />} />
                 <Route path="/nosotros" element={<Nosotros />} />
                 <Route path="/contacto" element={<Contacto />} />
+                <Route path="/producto/:id" element={<Producto />} />
             </Routes>
         </BrowserRouter>
     )
