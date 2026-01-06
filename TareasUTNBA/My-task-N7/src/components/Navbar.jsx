@@ -6,19 +6,13 @@ const Navbar = () => {
         <nav className="navbar">
             <ul className="navbar-list">
                 <li>
-                    <Link to="/" end className="nav-link">
-                        Inicio
-                    </Link>
+                    <Link to="/" end className="nav-link"> Inicio</Link>
                 </li>
                 <li>
-                    <Link to="/nosotros" className="nav-link">
-                        Nosotros
-                    </Link>
+                    <Link to="/nosotros" className="nav-link">Nosotros</Link>
                 </li>
                 <li>
-                    <Link to="/contacto" className="nav-link">
-                        Contacto
-                    </Link>
+                    <Link to="/contacto" className="nav-link">Contacto</Link>
                 </li>
             </ul>
         </nav>

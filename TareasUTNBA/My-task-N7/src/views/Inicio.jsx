@@ -17,7 +17,7 @@ const Inicio = () => {
                     <ul>
                         <li><Link to="/producto/1">Producto 1</Link></li>
                         <li><Link to="/producto/2">Producto 2</Link></li>
-                        <li><Link to="/producto/zapatilla">Producto Zapatilla</Link></li>
+                        <li><Link to="/producto/3">Producto 3</Link></li>
                     </ul>
                 </div>
 
