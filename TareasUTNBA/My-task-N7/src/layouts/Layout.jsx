@@ -3,7 +3,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import "../styles/Layout.css";
 
-const Layout = () => {
+const Layout = ({ onLogin, onLogout, isAuth }) => {
     return (
         <>
             <div className="layout">
