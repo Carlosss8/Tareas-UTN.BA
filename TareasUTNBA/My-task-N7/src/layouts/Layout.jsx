@@ -7,7 +7,7 @@ const Layout = () => {
     return (
         <>
             <div className="layout">
-                <Navbar />
+                <Navbar onLogin={onLogin} onLogout={onLogout} isAuth={isAuth} />
 
                 <main className="content">
                     <Outlet />

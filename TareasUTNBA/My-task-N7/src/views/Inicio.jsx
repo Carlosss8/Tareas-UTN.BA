@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 
 const Inicio = () => {
@@ -9,11 +10,14 @@ const Inicio = () => {
         navigate("/nosotros")
     }
 
+
+
     return (
         <>
             <main>
                 <div>
                     <h2>Inicio</h2>
+
                     <ul>
                         <li><Link to="/producto/1">Producto 1</Link></li>
                         <li><Link to="/producto/2">Producto 2</Link></li>
