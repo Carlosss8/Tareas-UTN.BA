@@ -1,16 +1,53 @@
-# React + Vite
+## TAREA N°7
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## DECRIPCION 
+Mini aplicación web estilo tienda de ropa y sencilla que simula una tienda de ropa, desarrollada con React y Vite que permite navegar entre distintas paginas para poder ver los distintos articulos presionando el boton "VER MAS", pero antes de poder ver los articulos tenes que iniciar sesion que esto esta esta protegido por un "ProtectedRoute" que maneja el login ![alt text](image.png), ademas tenemos un footer y navbar que tiene para navegar sus distintas paginas (Inicio, Nosotros, Contacto), Pantalla de Login Protegida Cuando el usuario entra por primera vez, debe iniciar sesión para poder ver los productos. ![alt text](image-1.png).
+Detalle de Producto Dinámico
+Al hacer clic en “VER MÁS”, se navega a una ruta dinámica que muestra la información de ese producto en particular utilizando un parámetro de ruta (/producto/:id). Esto se maneja mediante el hook useParams() que obtiene el id desde la URL y permite mostrar solo los datos de ese producto. 
+Medium
 
-Currently, two official plugins are available:
+Contacto: formulario de contacto
+Los enlaces están organizados con el componente <Link /> de React Router para una navegación fluida. 
+![alt text](image-2.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Footer Común y basico.
 
-## React Compiler
+## Lenguajes utilizados 
+- React
+- Vite
+- JavaScript
+- CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Clonar el repositorio
 
-## Expanding the ESLint configuration
+### 1. Clonar el repositorio
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+git clone https://github.com/Carlosss8/Tareas-UTN.BA/tree/main/TareasUTNBA/My-task-N7
+
+## 2. Ingresar a la carpeta del proyecto
+
+cd My-task-N7
+
+## 3. Instalar dependencias
+npm install
+
+## 4. Ejecutar la aplicación
+
+npm run dev
+
+## AUTOR
+
+NOMBRE: Carlos Rodriguez
+UNIDAD: Modulo 2 - Unidad 3
+
+## Fuentes
+
+-Preguntas y dudas a CHATGPT (Pedi que me ayude hacer un form.css sencillo y rapido)
+-Fuction React Router (https://api.reactrouter.com/v7/functions/react_router.Outlet.html)
+-UseSearchParams (https://reactrouter.com/api/hooks/useSearchParams)
+-Plantillas de form (https://plantillashtmlgratis.com/)
+
+## Ejercicios y PostData
+[text](<../../../../Modulo 2 - Unidad 3/Tarea - Enrutamiento.pdf>)
+
+Por lo personal esta actividad me gusto mucho y me hizo pensar mas de lo que venia haciendo, agregando nuevas funciones y como se maneja el enrutamiento que es muy distinto y a la vez similiar en algunos casos a lo que venia aprendiendo yo (.NET, C#, C++, Java) me gusto la parte de entender como usar las rutas protegidas y conectando todo con el layout.jsx.
