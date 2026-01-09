@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
+import "../styles/Layout.css";
 
 const Login = ({ onLogin }) => {
     const location = useLocation();
@@ -12,10 +13,14 @@ const Login = ({ onLogin }) => {
     };
 
     return (
-        <div>
-            <h2>Login</h2>
-            <button onClick={handleLogin}>Entrar</button>
-        </div>
+        <>
+            <main className="contenido-producto">
+                <div className="card-login">
+                    <h2>Debes loguearte o registrarte para seguir viendo o comprar nuestros productos</h2>
+                    <button className="button-login" onClick={handleLogin}>Iniciar sesion</button>
+                </div>
+            </main>
+        </>
     );
 };
 
