@@ -17,6 +17,7 @@ const Login = ({ onLogin }) => {
             <main className="contenido-producto">
                 <div className="card-login">
                     <h2>Debes loguearte o registrarte para seguir viendo o comprar nuestros productos</h2>
+                    <button className="button-login" onClick={() => navigate(-1)}>Volver</button>
                     <button className="button-login" onClick={handleLogin}>Iniciar sesion</button>
                 </div>
             </main>
