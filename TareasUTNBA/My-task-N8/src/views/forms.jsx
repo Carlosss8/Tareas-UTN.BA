@@ -7,7 +7,7 @@ const Forms = () => {
                 <h2>Contacto</h2>
 
                 <div className="form-group">
-                    <label htmlFor="name">Nombre</label>
+                    <p>Nombre</p>
                     <input
                         type="text"
                         id="name"
@@ -16,21 +16,12 @@ const Forms = () => {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="mail">Correo electrónico</label>
+                    <p>Correo Electronico</p>
                     <input
                         type="email"
                         id="mail"
                         placeholder="tuemail@mail.com"
                     />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="msg">Mensaje</label>
-                    <textarea
-                        id="msg"
-                        rows="4"
-                        placeholder="Escribí tu mensaje..."
-                    ></textarea>
                 </div>
 
                 <button type="submit">Enviar mensaje</button>
