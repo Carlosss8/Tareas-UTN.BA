@@ -7,9 +7,14 @@ const Forms = () => {
     const [email, setEmail] = useState("")
     const [error, setError] = useState("")
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Datos enviados:', { nombre, email });
+    };
+
     return (
         <main className="contacto-container">
-            <form className="contacto-form">
+            <form onSubmit={handleSubmit} className="contacto-form">
                 <h2>Contacto</h2>
 
                 <div className="form-group">
