@@ -1,6 +1,12 @@
+import { useState } from "react";
 import "../styles/forms.css";
 
 const Forms = () => {
+
+    const [nombre, setNombre] = useState("")
+    const [email, setEmail] = useState("")
+    const [error, setError] = useState("")
+
     return (
         <main className="contacto-container">
             <form className="contacto-form">
@@ -12,7 +18,16 @@ const Forms = () => {
                         type="text"
                         id="name"
                         placeholder="Tu nombre"
+                        value={nombre}
+                        onChange={(e) => setNombre(e.target.value)}
+                        onFocus={() => setError("")}
+                        onBlur={() => {
+                            if (nombre.trim() === "") {
+                                setError("El nombre está vacío");
+                            }
+                        }}
                     />
+                    {error && <span className="error-nombre">{error}</span>}
                 </div>
 
                 <div className="form-group">
@@ -21,6 +36,8 @@ const Forms = () => {
                         type="email"
                         id="mail"
                         placeholder="tuemail@mail.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
 
