@@ -1,11 +1,31 @@
 import { useParams } from "react-router-dom";
 import "../styles/Layout.css";
-import { productos } from "../components/productos";
+import { getAllProducts } from "../services/productos.js"
+import { useState, useEffect } from "react";
 
 const Producto = () => {
-    const { id } = useParams();
 
-    const producto = productos.find(p => p.id === id);
+    const { id } = useParams();
+    const [producto, setProducto] = useState(null);
+
+    const handleNosotros = () => {
+        navigate("/nosotros")
+    }
+
+    useEffect(() => {
+        const fetchingData = async () => {
+            const docs = await getAllProducts();
+            const data = docs.map(doc => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+
+            const prodEncontrado = data.find(p => p.id === id);
+            setProducto(prodEncontrado);
+        };
+
+        fetchingData();
+    }, [id]);
 
     if (!producto) {
         return <h2>Producto no encontrado</h2>;

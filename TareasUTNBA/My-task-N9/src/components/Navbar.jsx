@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../styles/Navbar.css";
 
 const Navbar = ({ onLogin, onLogout, isAuth }) => {
@@ -7,13 +7,13 @@ const Navbar = ({ onLogin, onLogout, isAuth }) => {
             <div className="nav-left"></div>
             <ul className="navbar-list">
                 <li>
-                    <Link to="/" end className="nav-link"> Inicio</Link>
+                    <NavLink to="/" end className="nav-link"> Inicio</NavLink>
                 </li>
                 <li>
-                    <Link to="/nosotros" className="nav-link">Nosotros</Link>
+                    <NavLink to="/nosotros" className="nav-link">Nosotros</NavLink>
                 </li>
                 <li>
-                    <Link to="/contacto" className="nav-link">Contacto</Link>
+                    <NavLink to="/contacto" className="nav-link">Contacto</NavLink>
                 </li>
             </ul>
             <div className="button-sesion">

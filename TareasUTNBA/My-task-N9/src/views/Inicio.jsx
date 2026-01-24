@@ -1,41 +1,51 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Layout.css";
-import { productos } from "../components/productos";
+import { getAllProducts } from "../services/productos.js"
+import { useState, useEffect } from "react";
 
 const Inicio = () => {
 
     const navigate = useNavigate();
+    const [products, setProducts] = useState([]);
 
     const handleNosotros = () => {
         navigate("/nosotros")
     }
 
+    const fetchingData = async () => {
+        const docs = await getAllProducts();
+        const data = docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
+        setProducts(data);
+    }
+
+    useEffect(() => {
+        fetchingData()
+    }, []);
 
     return (
-        <>
-            <main>
-                <div>
+        <main>
+            <ul className="card-list">
+                {products.map(p => (
+                    <div className="card-product" key={p.id}>
+                        <img className="card-image" src={p.imagen} />
+                        <h3>{p.nombre}</h3>
+                        <p>{p.descripcion}</p>
+                        <Link to={`/producto/${p.id}`} className="btn-VerMas">
+                            VER MÁS
+                        </Link>
+                    </div>
+                ))}
+            </ul>
 
-                    <ul className="card-list">
-                        {productos.map(p => (
-                            <div className="card-product" key={p.id}>
-                                <img className="card-image" src={p.imagen} />
-                                <h3>{p.nombre}</h3>
-                                <p>{p.descripcion}</p>
-                                <Link to={`/producto/${p.id}`} className="btn-VerMas">
-                                    VER MÁS
-                                </Link>
-                            </div>
-                        ))}
-                    </ul>
-
-                </div>
-
-                <div className="contenido-nosotros">
-                    <button className="button-nosotros" onClick={handleNosotros}>¿Quienes somos?</button>
-                </div>
-            </main>
-        </>
+            <div className="contenido-nosotros">
+                <button className="button-nosotros" onClick={handleNosotros}>
+                    ¿Quienes somos?
+                </button>
+            </div>
+        </main>
     )
 }
 
