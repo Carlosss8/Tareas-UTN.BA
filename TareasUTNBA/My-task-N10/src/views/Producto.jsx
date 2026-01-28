@@ -37,7 +37,9 @@ const Producto = () => {
                 <div className="card-product">
                     <img className="card-image" src={producto.imagen} />
                     <h3>{producto.nombre}</h3>
+                    <h4>${producto.precio}</h4>
                     <p>{producto.descripcion}</p>
+                    <p>Stock = {producto.stock}</p>
                 </div>
             </div>
         </main>
