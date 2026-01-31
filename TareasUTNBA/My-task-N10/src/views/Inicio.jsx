@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Layout.css";
+import "../styles/FormProduct.css";
 import { addNewProducts, searchForId, updateProduct, deleteProduct } from "../services/productos.js"
 import { useState, useEffect } from "react";
 import { onSnapshot, collection, addDoc, getDocs, doc, updateDoc, getDoc, deleteDoc } from "firebase/firestore"
@@ -85,54 +86,61 @@ const Inicio = () => {
 
     return (
         <main>
-            <section>
-                <h2>Agregar Producto</h2>
-                <form onSubmit={editingProduct ? handleUpdate : handleSubmit}>
-                    <input
-                        name="nombre"
-                        type="text"
-                        placeholder="Titulo"
-                        required
-                        value={formData.nombre}
-                        onChange={handleChange}
-                    />
+            <h2>Agregar Producto</h2>
+            <section className="form-input">
+                <form className="form-product" onSubmit={editingProduct ? handleUpdate : handleSubmit}>
+                    <div className="form-group">
+                        <input
+                            name="nombre"
+                            type="text"
+                            placeholder="Titulo"
+                            required
+                            value={formData.nombre}
+                            onChange={handleChange}
+                        />
+                    </div>
 
-                    <input
-                        name="precio"
-                        type="number"
-                        placeholder="Precio"
-                        required
-                        value={formData.precio}
-                        onChange={handleChange}
-                    />
-
-                    <input
-                        name="imagen"
-                        type="text"
-                        placeholder="URL image"
-                        required
-                        value={formData.imagen}
-                        onChange={handleChange}
-                    />
-
-                    <textarea
-                        name="descripcion"
-                        type="text"
-                        placeholder="Descripción"
-                        required
-                        value={formData.descripcion}
-                        onChange={handleChange}
-                    >
-                    </textarea>
-
-                    <input
-                        name="stock"
-                        type="number"
-                        placeholder="Stock"
-                        required
-                        value={formData.stock}
-                        onChange={handleChange}
-                    />
+                    <div className="form-group">
+                        <input
+                            name="precio"
+                            type="number"
+                            placeholder="Precio"
+                            required
+                            value={formData.precio}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input
+                            name="imagen"
+                            type="text"
+                            placeholder="URL image"
+                            required
+                            value={formData.imagen}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <textarea
+                            name="descripcion"
+                            type="text"
+                            placeholder="Descripción"
+                            required
+                            value={formData.descripcion}
+                            onChange={handleChange}
+                        >
+                        </textarea>
+                    </div>
+                    <div className="form-group">
+                        <input
+                            name="stock"
+                            type="number"
+                            placeholder="Stock"
+                            required
+                            value={formData.stock}
+                            onChange={handleChange}
+                        />
+                    </div>
                     <button type="submit">
                         {editingProduct ? "Actualizar" : "Agregar"}
                     </button>
@@ -140,7 +148,7 @@ const Inicio = () => {
             </section>
 
             <div>
-                <h2>Buscar producto</h2>
+                <h2></h2>
 
                 {result && (
                     <div className="card-product">
