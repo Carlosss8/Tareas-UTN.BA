@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Layout.css";
-import { addNewProducts, searchForId } from "../services/productos.js"
+import { addNewProducts, searchForId, updateProduct, deleteProduct } from "../services/productos.js"
 import { useState, useEffect } from "react";
-import { onSnapshot, collection } from "firebase/firestore"
+import { onSnapshot, collection, addDoc, getDocs, doc, updateDoc, getDoc, deleteDoc } from "firebase/firestore"
 import { db } from "../config/firebase"
 
 const Inicio = () => {
@@ -12,6 +12,7 @@ const Inicio = () => {
     const [addProduct, setAddProduct] = useState(null)
     const [searchId, setSearchId] = useState("")
     const [result, setResult] = useState(null)
+    const [editingProduct, setEditingProduct] = useState(null)
     const [formData, setFormData] = useState({
         nombre: "",
         precio: "",
@@ -42,17 +43,7 @@ const Inicio = () => {
         return () => unsubscribe()
     }, [])
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        const addProduct = await addNewProducts({
-            nombre: formData.nombre,
-            precio: Number(formData.precio),
-            imagen: formData.imagen,
-            descripcion: formData.descripcion,
-            stock: formData.stock
-        })
-        setProducts([addProduct, ...products])
-
+    const resetForm = () => {
         setFormData({
             nombre: "",
             precio: "",
@@ -62,16 +53,41 @@ const Inicio = () => {
         })
     }
 
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        await addNewProducts(formData)
+        setFormData({ nombre: "", precio: "", imagen: "", descripcion: "", stock: "" })
+        resetForm()
+    }
+
+    const handleUpdate = async (e) => {
+        e.preventDefault()
+        await updateProduct(editingProduct, formData)
+        setEditingProduct(null)
+        resetForm()
+    }
+
     const handleSearch = async () => {
         const producto = await searchForId(searchId)
         setResult(producto)
+    }
+
+    const handleDeleteProduct = async (id) => {
+        try {
+            const idDeletedProduct = await deleteProduct(id)
+            alert(`Producto id: ${idDeletedProduct} borrado con éxito`)
+            const filteredProducts = products.filter(p => p.id !== id)
+            setProducts(filteredProducts)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (
         <main>
             <section>
                 <h2>Agregar Producto</h2>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={editingProduct ? handleUpdate : handleSubmit}>
                     <input
                         name="nombre"
                         type="text"
@@ -117,7 +133,9 @@ const Inicio = () => {
                         value={formData.stock}
                         onChange={handleChange}
                     />
-                    <button>{addProduct} Agregar </button>
+                    <button type="submit">
+                        {editingProduct ? "Actualizar" : "Agregar"}
+                    </button>
                 </form>
             </section>
 
@@ -142,6 +160,15 @@ const Inicio = () => {
                         <Link to={`/producto/${p.id}`} className="btn-VerMas">
                             VER MÁS
                         </Link>
+                        <div>
+                            <button onClick={() => {
+                                setEditingProduct(p.id)
+                                setFormData(p)
+                            }}>
+                                Editar
+                            </button>
+                        </div>
+                        <button onClick={() => handleDeleteProduct(p.id)}>Borrar</button>
                     </div>
                 ))}
             </ul>

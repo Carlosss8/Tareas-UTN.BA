@@ -1,4 +1,4 @@
-import { addDoc, collection, getDocs, doc } from "firebase/firestore"
+import { addDoc, collection, getDocs, doc, getDoc, updateDoc, deleteDoc } from "firebase/firestore"
 import { db } from "../config/firebase";
 
 const productCollection = collection(db, "products")
@@ -15,6 +15,12 @@ const addNewProducts = async (products) => {
         ...products
     }
 }
+
+const updateProduct = async (id, updates) => {
+    const ref = doc(db, "products", id)
+    await updateDoc(ref, updates)
+}
+
 const searchForId = async (id) => {
     const productCollection = doc(db, "products", id)
     const snapshot = await getDoc(productCollection)
@@ -27,5 +33,11 @@ const searchForId = async (id) => {
     }
 }
 
+const deleteProduct = async (id) => {
+    const product = doc(db, "products", id)
+    await deleteDoc(product)
+    return id
+}
 
-export { getAllProducts, addNewProducts, searchForId }
+
+export { getAllProducts, addNewProducts, searchForId, updateProduct, deleteProduct }
